@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <title>Blog - CTF</title>
+    <meta name="author" content="DeltA" />
+    <meta name="description" content="You think you understand something until you try to teach it">
+    <link rel="alternate" type="application/rss+xml" title="DeltA's Blog - Pwned" href="/feed.xml" />
+    <!-- Favicon head tag -->
+    <link rel="shortcut icon" type="image/png" href="/img/Artboard 1.png" >
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137982391-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-137982391-1');
+    </script>
+    <!-- Google Analytics -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-137982391-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    <!-- Facebook OpenGraph tags -->
+    <meta property="og:title" content="Blog" />
+    <meta property="og:description" content="You think you understand something until you try to teach it">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://prj_sec.github.io/" />
+    <link rel="canonical" href="https://prj_sec.github.io/" />
+    <meta property="og:image" content="https://prj_sec.github.io/img/avatar-icon.png" />
+    <!-- Twitter summary cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta name="twitter:title" content="Blog" />
+    <meta name="twitter:description" content="You think you understand something until you try to teach it">
+    <meta name="twitter:image" content="https://delt-a.github.io/img/avatar-icon.png" />
+    <!--SEO tag testing-->
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+    <meta name="generator" content="Jekyll v3.9.0" />
+    <meta property="og:title" content="Blog" />
+    <meta name="author" content="DeltA" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Pwned" />
+    <meta property="og:description" content="Pwned" />
+    <link rel="canonical" href="https://delt-a.github.io/" />
+    <meta property="og:url" content="https://delt-a.github.io/" />
+    <meta property="og:site_name" content="DeltA’s Blog" />
+    <script type="application/ld+json">
+      {"headline":"Blog","@type":"WebSite","author":{"@type":"Person","name":"DeltA"},"url":"https://delt-a.github.io/","description":"Pwned","name":"DeltA’s Blog","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+</head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-brand-logo" href="https://delt-a.github.io"><img src="/img/Artboard 1.png"/></a>   
+          </div>
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="/categories">Categories</a>
+              </li>
+              <li>
+                  <a href="/aboutme">About Me</a>
+              </li>
+              </ul>
+          </div>
+          <div class="avatar-container">
+              <div class="avatar-img-border">
+                <a href="https://delt-a.github.io">
+                  <img class="avatar-img" src="/img/avatar-icon.png" />
+                  </a>
+              </div>
+            </div>
+        </div>
+        </nav>
+    <header class="header-section ">
+        <div class="intro-header no-img">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <h1>PicoCTF: Sql Direct</h1>
+                  <span class="post-meta">Posted on March 27, 2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <article role="main" class="blog-post">
+                    <h2 id="english-below">[WRITE - UP]</h2>     
+        <p>Hôm nay mình sẽ viết lại challenge này, đây là 1 challenge về SQL.</p>      
+        <p>Ở challenge này bạn phải connect PostgreSQL Server, ở đây mình sử dụng Kali Linux.</p>
+        <p><img src="/img/sql_direct.png" alt="sql_direct.PNG" /></p> 
+        <p><a href="https://play.picoctf.org/practice/challenge/303?category=1&page=1&search=sql">Link challenge</a>    
+        
+        <p class="box-note">psql -h saturn.picoctf.net -p 55980 -U postgres pico</p>
+        
+        <p>Ta có thể thấy challenge có <strong>\h</strong> với SQL commands, nên mình đã dùng payload sau để lấy tất cả Table ở trong Database</p>
+        <p class="box-note">SELECT * FROM INFORMATION_SCHEMA.TABLES;</p> 
+        <p><img src="/img/sql_direct2.png" alt="sql_direct2.PNG" /></p>
+        
+        <p>Có thể thấy kết quả trả về các Table trong Datbase, và có 1 Table <strong>flags</strong></p>    
+        <p>Lấy flag thui nào!!!</p>
+        
+        <p class="box-note">SELECT * FROM flags;</p>
+        <p><img src="/img/sql_direct3.png" alt="sql_direct.png" /></p>
+        <p class="box-note">Flag: picoCTF{L3arN_S0m3_5qL_t0d4Y_31fd14c0}</p>
+              </article>
+              <script>
+                if (typeof jQuery == 'undefined') {
+                  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+                }
+            </script>
+          
+        
+          <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+          
+          <script src="/js/bootstrap.min.js"></script>
+          
+        
+          <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+          
+          <script src="/js/main.js"></script>
