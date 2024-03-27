@@ -9,7 +9,7 @@
     <meta name="description" content="You think you understand something until you try to teach it">
     <link rel="alternate" type="application/rss+xml" title="DeltA's Blog - Pwned" href="/feed.xml" />
     <!-- Favicon head tag -->
-    <link rel="shortcut icon" type="image/png" href="../../../img/Artboard 1.png" >
+    <link rel="shortcut icon" type="image/png" href="../../img/Artboard 1.png" >
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137982391-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -29,9 +29,9 @@
       ga('send', 'pageview');
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../../../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../../css/bootstrap-social.css" />
-    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap-social.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
     <!-- Facebook OpenGraph tags -->
@@ -73,7 +73,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand navbar-brand-logo" href="https://lebathanh1308.github.io/Project_sec1"><img src="../../../img/Artboard 1.png"/></a>   
+            <a class="navbar-brand navbar-brand-logo" href="https://lebathanh1308.github.io/Project_sec1"><img src="../../img/Artboard 1.png"/></a>   
           </div>
           <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav navbar-nav navbar-right">
@@ -85,7 +85,7 @@
           <div class="avatar-container">
               <div class="avatar-img-border">
                 <a href="https://lebathanh1308.github.io/Project_sec1">
-                  <img class="avatar-img" src="../../../img/avatar-icon.png" />
+                  <img class="avatar-img" src="../../img/avatar-icon.png" />
                   </a>
               </div>
             </div>
@@ -112,20 +112,20 @@
                     <h2 id="english-below">[WRITE - UP]</h2>     
                       <p>Hôm nay mình sẽ viết lại challenge này, đây là 1 challenge về SQL.</p>      
                       <p>Ở challenge này bạn phải connect PostgreSQL Server, ở đây mình sử dụng Kali Linux.</p>
-                      <p><img src="../../../img/sql_direct.png" alt="sql_direct.PNG" /></p> 
+                      <p><img src="../../img/sql_direct.png" alt="sql_direct.PNG" /></p> 
                       <p><a href="https://play.picoctf.org/practice/challenge/303?category=1&page=1&search=sql">Link challenge</a>    
         
                       <p class="box-note">psql -h saturn.picoctf.net -p 55980 -U postgres pico</p>
         
                       <p>Ta có thể thấy challenge có <strong>\h</strong> với SQL commands, nên mình đã dùng payload sau để lấy tất cả Table ở trong Database</p>
                       <p class="box-note">SELECT * FROM INFORMATION_SCHEMA.TABLES;</p> 
-                      <p><img src="../../../img/sql_direct2.png" alt="sql_direct2.PNG" /></p>
+                      <p><img src="../../img/sql_direct2.png" alt="sql_direct2.PNG" /></p>
         
                       <p>Có thể thấy kết quả trả về các Table trong Datbase, và có 1 Table <strong>flags</strong></p>    
                       <p>Lấy flag thui nào!!!</p>
         
                       <p class="box-note">SELECT * FROM flags;</p>
-                      <p><img src="../../../img/sql_direct3.png" alt="sql_direct.png" /></p>
+                      <p><img src="../../img/sql_direct3.png" alt="sql_direct.png" /></p>
                       <p class="box-note">Flag: picoCTF{L3arN_S0m3_5qL_t0d4Y_31fd14c0}</p>
               </article>
             </div>
@@ -152,17 +152,17 @@
                   <h2 id="english-below">[WRITE - UP]</h2>   
                     <p><a href="https://play.picoctf.org/practice/challenge/358?category=1&page=1&search=sql">Link challenge</a>    
                     <p>Ở challenge này chúng ta sẽ có 1 form login, và khi nhập <strong>username, password</strong> sẽ trả về chính username, password đó kèm theo 1 Query.</p>
-                    <p><img src="../../../img/more_sqli.png" alt="more_sqli.PNG" /></p> 
+                    <p><img src="../../img/more_sqli.png" alt="more_sqli.PNG" /></p> 
                     <p>Ta có thể thấy có toán tử AND nên buộc cả 2 trường đúng thì mới login thành công, và mình đã test payload vào cả 2 trường <strong>username, password</strong></p>
       
                     <p class="box-note">' OR '1'='1--</p>
-                    <p><img src="../../../img/more_sqli1.png" alt="more_sqli.PNG" /></p>     
+                    <p><img src="../../img/more_sqli1.png" alt="more_sqli.PNG" /></p>     
                     <p>Ở đây mình thấy 3 cột, và đề bài cũng đề cập SQLI nên mình test payload sau. </p>    
                     <p class="box-note"> 1,2,3' UNION SELECT name,sql,null FROM sqlite_master--</p>
-                    <p><img src="../../../img/more_sqli2.png" alt="more_sqli.PNG" /></p>     
+                    <p><img src="../../img/more_sqli2.png" alt="more_sqli.PNG" /></p>     
                     <p>Mình đã tìm được bảng <strong>more_table</strong> có chứa column <strong>flag</strong></p>
                     <p class="box-note"> admin' UNION SELECT flag,NULL,NULL from more_table--</p>   
-                    <p><img src="../../../img/more_sqli3.png" alt="more_sqli.png" /></p>
+                    <p><img src="../../img/more_sqli3.png" alt="more_sqli.png" /></p>
                     <p class="box-note">Flag: picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_78d0583a}</p>
             </article>
           </div>
@@ -170,16 +170,16 @@
     </div>
               <script>
                 if (typeof jQuery == 'undefined') {
-                  document.write('<script src="../../../js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+                  document.write('<script src="../../js/jquery-1.11.2.min.js"></scr' + 'ipt>');
                 }
             </script>
           
         
           <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
           
-          <script src="../../../js/bootstrap.min.js"></script>
+          <script src="../../js/bootstrap.min.js"></script>
           
         
           <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
           
-          <script src="../../../js/main.js"></script>
+          <script src="../../js/main.js"></script>
