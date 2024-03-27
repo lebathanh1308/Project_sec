@@ -113,7 +113,7 @@
                         <p><a href="http://challenge01.root-me.org/web-serveur/ch34/?action=login">Link challenge</a>    
                       <p>Với những challenge như thế này, việc đầu tiên là fuzz ở param nào  xảy ra lỗi, và param order xảy ra lỗi khi mình thử một số kí tự (', #, "...)</p>      
                       <p><img src="../../img/sqli.png" alt="sqli.PNG" /></p> 
-                      <p>Ngoài ra với position là 1 số hoặc Type CHAR/VARCHAR thì sẽ page phản hồi lỗ</p>
+                      <p>Ngoài ra với position là 1 số hoặc Type CHAR/VARCHAR thì sẽ page phản hồi lỗi</p>
                       <p>Dựa vào cheatsheet của MySQL, ta có thể sử dụng CAST … AS [type] để khiến database res về error khi postion không thể là VARCHAR/CHAR. Mở burpsuite và thử payload:</p>
         
                       <p class="box-note">CAST((SELECT table_name FROM information_schema.tables LIMIT 1) AS FLOAT)</p>
