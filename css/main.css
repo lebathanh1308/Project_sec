@@ -717,6 +717,15 @@ td.gutter {
   background-color: #eee;
   border-left-color: #2980b9;
 }
+.box-note1{
+  background-color: #eee;
+  border-left-color: #2980b9;
+  padding: 15px 15px 15px 10px;
+  margin: 20px 20px 20px 5px;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 5px 3px 3px 5px;
+}
 
 .box-warning {
   background-color: #fdf5d4;

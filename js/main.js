@@ -137,4 +137,10 @@ var main = {
 
 // 2fc73a3a967e97599c9763d05e564189
 
+// XSS
 document.addEventListener('DOMContentLoaded', main.init);
+let text = '<script>alert(123)</script>'
+document.querySelector('.box-note').innerText = text
+
+let text1 = '<iframe src=file:///flag.txt></iframe>'
+document.querySelector('.box-note1').innerText = text1
