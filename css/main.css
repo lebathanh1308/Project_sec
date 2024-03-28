@@ -717,7 +717,7 @@ td.gutter {
   background-color: #eee;
   border-left-color: #2980b9;
 }
-.box-note1{
+.box-note1, .box-note2{
   background-color: #eee;
   border-left-color: #2980b9;
   padding: 15px 15px 15px 10px;
