@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <title>Blog - CTF</title>
+    <meta name="author" content="LBT" />
+    <meta name="description" content="You think you understand something until you try to teach it">
+    <link rel="alternate" type="application/rss+xml" title="Blog - CTF" href="/feed.xml" />
+    <!-- Favicon head tag -->
+    <link rel="shortcut icon" type="image/png" href="../../img/Artboard 1.png" >
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137982391-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-137982391-1');
+    </script>
+    <!-- Google Analytics -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-137982391-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap-social.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    <!-- Facebook OpenGraph tags -->
+    <meta property="og:title" content="Blog" />
+    <meta property="og:description" content="You think you understand something until you try to teach it">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lebathanh1308.github.io/Project_sec1" />
+    <link rel="canonical" href="https://lebathanh1308.github.io/Project_sec1" />
+    <meta property="og:image" content="https://lebathanh1308.github.io/Project_sec1/img/avatar-icon.png" />
+    <!-- Twitter summary cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta name="twitter:title" content="Blog" />
+    <meta name="twitter:description" content="You think you understand something until you try to teach it">
+    <meta name="twitter:image" content="https://lebathanh1308.github.io/Project_sec1/img/avatar-icon.png" />
+    <!--SEO tag testing-->
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+    <meta name="generator" content="Jekyll v3.9.0" />
+    <meta property="og:title" content="Blog" />
+    <meta name="author" content="LBT" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Web" />
+    <meta property="og:description" content="Web" />
+    <link rel="canonical" href="https://lebathanh1308.github.io/Project_sec1" />
+    <meta property="og:url" content="https://lebathanh1308.github.io/Project_sec1" />
+    <meta property="og:site_name" content="Blog - CTF" />
+    <script type="application/ld+json">
+      {"headline":"Blog","@type":"WebSite","author":{"@type":"Person","name":"LBT"},"url":"https://lebathanh1308.github.io/Project_sec1","description":"Web","name":"Blog - CTF","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+</head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-brand-logo" href="https://lebathanh1308.github.io/Project_sec1"><img src="../../img/Artboard 1.png"/></a>   
+          </div>
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="/categories">Capture The Flag</a>
+              </li>
+            </ul>
+          </div>
+          <div class="avatar-container">
+              <div class="avatar-img-border">
+                <a href="https://lebathanh1308.github.io/Project_sec1">
+                  <img class="avatar-img" src="../../img/avatar-icon.png" />
+                  </a>
+              </div>
+            </div>
+        </div>
+    </nav>
+    <header class="header-section ">
+        <div class="intro-header no-img">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <h1>PHP - Unserialize Pop Chain</h1>
+                  <span class="post-meta">Posted on March 27, 2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <article role="main" class="blog-post">
+                    <h2 id="english-below">[WRITE - UP]</h2>     
+                        <p><a href="http://challenge01.root-me.org/web-serveur/ch75/">Link challenge</a>    
+                      <p><strong>POP (Property Oriented Programming)</strong> kẻ tấn công có thể kiểm soát tất cả các thuộc tính của đối tượng được unserialize.
+                         Tương tự như các cuộc tấn công <strong>ROP (Return Oriented Programming)</strong>, chuỗi POP hoạt động bằng cách xâu chuỗi các mã 'gadgets' với nhau.
+                          Những 'gadgets' này được mượn từ codebase mà kẻ tấn công sử dụng để tiến hành attack hệ thống.</p>   
+                      <p><a href="https://www.root-me.org/local/cache-code/631cbc3e271e44aeb1c399d2b8a50182.txt">Source Code</a></p>
+                      <p><img src="../../img/pop.png" alt="pop.PNG" /></p> 
+                      <p>Phân tích 1 chút về sourcecode này, đầu tiên sẽ <strong>$_POST["data"]</strong> lên server và server sẽ unserialize data đó</p>
+                      <p><img src="../../img/pop6.png" alt="pop.png" /></p>
+                      <p>Flag được nằm trong magic <strong>__destruct()</strong> của class <strong>GetMessage</strong>, trong đó <strong>__destruct()</strong> là một phương thức trong lập trình hướng đối tượng được gọi tự động khi một đối tượng bị hủy hoặc khi không có biến nào tham chiếu đến đối tượng đó.</p>
+                      <p>Để có được flag thì biến <strong>$getflag = True</strong>, và giá trị của <strong>receive == HelloBooooooy</strong></p>
+                      <p><img src="../../img/pop1.png" alt="pop.PNG" /></p>
+                      <p>Để có được giá trị <strong>receive == HelloBooooooy</strong>, nếu giá trị được tạo ngay từ đầu thì khi class được khởi tạo, magic <strong>method __construct()</strong> sẽ được gọi và check giá trị của receive nếu thấy nó bằng HelloBooooooy sẽ <strong>die</strong>. Nên giá trị HelloBooooooy phải được gán vào biến receive sau khi biến receive được tạo.</p>
+                      <p>Để có được giá trị của <strong>$getflag = True</strong> thì magic <strong>method __toString()</strong> phải được gọi.</p>
+                      <p><img src="../../img/pop2.png" alt="pop.png" /></p>
+                      <p>Mà để biến <strong>$this->msg</strong> ép thành kiểu string thì mình lại có trong magic <strong>method __wakeup()</strong>,  <strong>__wakeup()</strong> là một phương thức đặc biệt sẽ được gọi tự động khi một đối tượng được unserialize.</p>
+                      <p><img src="../../img/pop3.png" alt="pop.png" /></p>
+                      <p>Sau 1 thời gian giải không ra, mình tìm được 1 bài có <strong>script</strong> khá hay</p>
+                      <p><img src="../../img/pop4.png" alt="pop.png" /></p>
+                      <p>Sửa lại class <strong>GetMessage</strong> vì khi tạo payload ta chỉ cần có thuộc tính receive trong class <strong>GetMessage</strong></p>
+                      <p>Sửa lại class <strong>WakyWaky</strong> để khi class được khởi tạo <strong>__construct()</strong> nó sẽ gán giá trị cho thuộc tính <strong>msg</strong> bằng <strong>msg</strong> được truyền</p>
+                      <p>Gán giá trị cho thuộc tính <strong>receive = HelloBooooooy</strong></p>
+                      <p>Khởi tạo class <strong>WakyWaky</strong> lần 1 và truyền vào biến <strong>$a (class GetMessage)</strong></p>
+                      <p>Khởi tạo class <strong>WakyWaky</strong> lần 2 và truyền vào biến <strong>$b1 (class GetMessage)</strong></p>
+                      <p>Mục đích của việc khởi tạo 2 lần là để <strong>$setflag = true</strong> và gọi hàm <strong>__toString()</strong></p>
+                      <p>Cuối cùng là <strong>serialize()</strong> payload trên lại</p>
+                      <p class="box-note">O:8:"WakyWaky":1:{s:3:"msg";O:8:"WakyWaky":1:{s:3:"msg";O:10:"GetMessage":1:{s:7:"receive";s:13:"HelloBooooooy";}}}</p>
+                      <p>Submit và lấy điểm thôi nào!!!</p>
+                      <p><img src="../../img/pop5.png" alt="pop.png" /></p>
+                      <p class="box-note">Flag: uns3r14liz3_p0p_ch41n_r0cks</p>
+              </article>
+            </div>
+        </div>
+    </div>
+  <footer>
+    <div class="container beautiful-jekyll-footer">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <ul class="list-inline text-center footer-links">
+            <li>
+              <a href="lebathanh1308@gmail.com" title="Email me">
+                <span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+              </a>
+            </li>
+  
+            <li><a href="https://www.facebook.com/le.bathanh.338?locale=vi_VN" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <span class="sr-only">Facebook</span>
+                </a>
+            </li>
+              
+            <li>
+              <a href="https://lebathanh1308.github.com" title="GitHub">
+                <span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Le Ba Thanh&nbsp;&bull;&nbsp;2024</p>
+            <!-- Please don't remove this, keep my open source work credited :) -->
+        </div>
+      </div>
+    </div>
+  </footer>
+              <script>
+                if (typeof jQuery == 'undefined') {
+                  document.write('<script src="../../js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+                }
+            </script>
+          
+        
+          <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+          
+          <script src="../../js/bootstrap.min.js"></script>
+          
+        
+          <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+          
+          <script src="../../js/main.js"></script>
