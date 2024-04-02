@@ -114,17 +114,17 @@
                       <p>Với những challenge như thế này, việc đầu tiên là fuzz ở param nào  xảy ra lỗi, và param order xảy ra lỗi khi mình thử một số kí tự (', #, "...)</p>      
                       <p><img src="../../img/sqli.png" alt="sqli.PNG" /></p> 
                       <p>Ngoài ra với position là 1 số hoặc Type CHAR/VARCHAR thì sẽ page phản hồi lỗi</p>
-                      <p>Dựa vào cheatsheet của MySQL, ta có thể sử dụng CAST … AS [type] để khiến database res về error khi postion không thể là VARCHAR/CHAR. Mở burpsuite và thử payload:</p>
+                      <p>Dựa vào cheatsheet của MySQL, ta có thể sử dụng <strong>CAST … AS [type]</strong> để khiến database phản hồi về error khi postion không phải là VARCHAR/CHAR. Hàm <strong>CAST … AS</strong> trong SQL Server để chuyển đổi một biểu thức từ một kiểu dữ liệu này sang kiểu dữ liệu khác. Nếu chuyển đổi không thành công, CAST sẽ báo lỗi, ngược lại nó sẽ trả về giá trị chuyển đổi tương ứng. Mở burpsuite và thử payload:</p>
         
                       <p class="box-note">CAST((SELECT table_name FROM information_schema.tables LIMIT 1) AS FLOAT)</p>
-        
+                      <p>Câu truy vấn trên sau khi lấy được table hàm <strong>CAST...AS</strong> sẽ chuyển kiểu dữ liệu của kết quả truy vấn đó về kiểu FLOAT, qua đó ta có thể bypass challenge này</p>
                       <p><img src="../../img/sqli1.png" alt="sqli.PNG" /></p>
                       <p>Response có thể thấy web chỉ hiển thị 1 hàng, ta có thể dùng <strong>LIMIT</strong> để filter về 1 hàng. <strong>Table_name: m3mbr35t4bl3</strong></p>
                       <p>Tiếp theo lấy <strong>column</strong> thôi!!!</p>
                       <p class="box-note">CAST((SELECT column_name FROM information_schema.columns LIMIT 1) AS FLOAT)</p>
                       <p><img src="../../img/sqli2.png" alt="sqli.png" /></p>
                       <p><strong>Column_name: id</strong></p> 
-                      <p>Đến đây, ta cần sử dụng OFFSET để có thể filter vào đúng postion ta cần LIMIT để hiển thị các column còn lại.</p>    
+                      <p>Đến đây, ta cần sử dụng OFFSET để bỏ qua hàng đầu tiên và lấy kết quả hàng thứ 2 của truy vấn, cứ tiếp tục và lấy ra các hàng cần tìm</p>    
                       <p class="box-note">CAST((SELECT column_name FROM information_schema.columns LIMIT 1 OFFSET 1) AS FLOAT)</p>
                       <p><img src="../../img/sqli3.png" alt="sqli.png" /></p>
                       <p><strong>Username Column: us3rn4m3_c0l</strong></p>
