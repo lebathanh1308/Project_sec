@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <title>Blog - CTF</title>
+    <meta name="author" content="DeltA" />
+    <meta name="description" content="You think you understand something until you try to teach it">
+    <link rel="alternate" type="application/rss+xml" title="DeltA's Blog - Pwned" href="/feed.xml" />
+    <!-- Favicon head tag -->
+    <link rel="shortcut icon" type="image/png" href="../../img/Artboard 1.png" >
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137982391-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-137982391-1');
+    </script>
+    <!-- Google Analytics -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-137982391-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap-social.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    <!-- Facebook OpenGraph tags -->
+    <meta property="og:title" content="Blog" />
+    <meta property="og:description" content="You think you understand something until you try to teach it">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lebathanh1308.github.io/Project_sec1" />
+    <link rel="canonical" href="https://lebathanh1308.github.io/Project_sec1" />
+    <meta property="og:image" content="https://lebathanh1308.github.io/Project_sec1/img/avatar-icon.png" />
+    <!-- Twitter summary cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta name="twitter:title" content="Blog" />
+    <meta name="twitter:description" content="You think you understand something until you try to teach it">
+    <meta name="twitter:image" content="https://lebathanh1308.github.io/Project_sec1/img/avatar-icon.png" />
+    <!--SEO tag testing-->
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+    <meta name="generator" content="Jekyll v3.9.0" />
+    <meta property="og:title" content="Blog" />
+    <meta name="author" content="LBT" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Web" />
+    <meta property="og:description" content="Web" />
+    <link rel="canonical" href="https://lebathanh1308.github.io/Project_sec1" />
+    <meta property="og:url" content="https://lebathanh1308.github.io/Project_sec1" />
+    <meta property="og:site_name" content="Blog - CTF" />
+    <script type="application/ld+json">
+      {"headline":"Blog","@type":"WebSite","author":{"@type":"Person","name":"LBT"},"url":"https://lebathanh1308.github.io/Project_sec1","description":"Web","name":"Blog - CTF","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+</head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-brand-logo" href="https://lebathanh1308.github.io/Project_sec1"><img src="../../img/Artboard 1.png"/></a>   
+          </div>
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="/categories">Capture The Flag</a>
+              </li>
+            </ul>
+          </div>
+          <div class="avatar-container">
+              <div class="avatar-img-border">
+                <a href="https://lebathanh1308.github.io/Project_sec1">
+                  <img class="avatar-img" src="../../img/avatar-icon.png" />
+                  </a>
+              </div>
+            </div>
+        </div>
+    </nav>
+    <header class="header-section ">
+        <div class="intro-header no-img">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <h1>Flask - Unsecure session</h1>
+                  <span class="post-meta">Posted on March 27, 2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <article role="main" class="blog-post">
+                    <h2 id="english-below">[WRITE - UP]</h2>     
+                    <p><a href="http://challenge01.root-me.org:59084/">Link challenge</a>    
+                      <p>Python Flask là một micro-framework được viết bằng ngôn ngữ lập trình Python dùng cho các nhà phát triển web, Flask dựa trên bộ công cụ Werkzeg WSGI và template engine Jinja2, Flask hỗ trợ rất nhiều các tiện ích mở rộng như tích hợp CSDL, hệ thống upload, xác thực, template, email…</p>      
+                      <p>Flask-Unsign là một thư viện Python được sử dụng trong ứng dụng web Flask để giải mã các cookie được tạo bằng <strong>itsdangerous</strong>, một thư viện con của Flask được sử dụng để ký và giải mã dữ liệu nhạy cảm như cookie. Khi bạn ký một cookie trong Flask bằng <strong>itsdangerous</strong>, nó thường được mã hóa để ngăn chặn các cuộc tấn công như manipulations hoặc forgeries.</p>
+                      <p>Vào challeng sẽ có 1 trang như thế này, vì không phải là admin nên không thể tìm được gì ở đây</p>
+                      <p><img src="../../img/fl1.png" alt="fl.PNG" /></p> 
+                      <p>Mình dùng <strong>Cookie-Editor</strong> để xem challenge có cookie gì không, thì có một cookie tên là <strong>session</strong>, đây là tên của biến mặc định để lưu trữ phiên trong Flask.</p>
+                      <p><img src="../../img/fl2.png" alt="fl.PNG" /></p> 
+                      <p>Phiên này bao gồm ba phần, cách nhau bằng dấu chấm. Rất giống với <strong>Json Web Token (JWT)</strong>, nhưng hơi khác một chút. Đại diện cho một chuỗi như <strong>"payload.timestamp.signature"</strong>.</p>
+                      <p>Đối với Flask, thì payload được chứa trong phần đầu tiên, mình dùng Base64 để decode thì được như sau</p>
+                      <p><img src="../../img/fl3.png" alt="fl.PNG" /></p> 
+                      <p>Tiếp theo chúng ta cần tìm được Key để tạo một cookie mới với admin = true, mình dùng <strong>BruteForce</strong></p>
+                      <p>Challenge này các bạn có thể dùng Linux, nhưng không hiểu sao Linux của mình không chạy được Flask mặc dù đã install thành công, nên ở đây mình sẽ dùng CMD</p>
+                      <p class="box-note">pip3 install flask-unsign</p>
+                      <p><img src="../../img/fl.png" alt="fl.PNG" /></p>
+                      <p>Thử decode lại cookie xem Flask có chạy ok không</p>
+                      <p><img src="../../img/fl4.png" alt="fl.PNG" /></p>
+                      <p>Ok rồi, nếu các bạn dùng Linux thì wordlist có sẵn rồi, còn nếu dùng Window thì phải tải về nhé</p>
+                      <p class="box-note">pip3 install flask-unsign[wordlist]</p> 
+                      <p>Tiến hành <strong>BruteForce</strong> lấy Key thôi nào !!!!</p>
+                      <p class="box-note">flask-unsign --unsign  --cookie 'eyJhZG1pbiI6ImZhbHNlIiwidXNlcm5hbWUiOiJndWVzdCJ9.ZhCeUw.
+                        Hz3IZrH4b98QQAQDC916v2iec0A'</p>
+                      <p><img src="../../img/fl5.png" alt="fl.png" /></p>
+                      <p>Đã có Key, giờ thì tạo cookie mới với admin rồi lấy Flag thôi..</p>
+                      <p class="box-note">flask-unsign --sign --cookie "{'admin': 'true', 'username': 'admin'}" --secret 's3cr3t'</p>
+                      <p><img src="../../img/fl6.png" alt="fl.png" /></p>
+                      <p>Giờ thì thay đổi cookie và lấy Flag thui</p>    
+                      <p><img src="../../img/fl7.png" alt="fl.png" /></p>
+                      <p class="box-note">Flag: Fl4sK_mi5c0nfigur4ti0n</p>
+              </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+      <div class="container beautiful-jekyll-footer">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <ul class="list-inline text-center footer-links">
+              <li>
+                <a href="lebathanh1308@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg" aria-hidden="true">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <span class="sr-only">Email me</span>
+                </a>
+              </li>
+    
+              <li><a href="https://www.facebook.com/le.bathanh.338?locale=vi_VN" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="sr-only">Facebook</span>
+                  </a>
+              </li>
+                
+              <li>
+                <a href="https://lebathanh1308.github.com" title="GitHub">
+                  <span class="fa-stack fa-lg" aria-hidden="true">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <span class="sr-only">GitHub</span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Le Ba Thanh&nbsp;&bull;&nbsp;2024</p>
+              <!-- Please don't remove this, keep my open source work credited :) -->
+          </div>
+        </div>
+      </div>
+    </footer>
+              <script>
+                if (typeof jQuery == 'undefined') {
+                  document.write('<script src="../../js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+                }
+            </script>
+          
+        
+          <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+          
+          <script src="../../js/bootstrap.min.js"></script>
+          
+        
+          <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+          
+          <script src="../../js/main.js"></script>
