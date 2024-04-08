@@ -142,6 +142,46 @@
             </div>
         </div>
     </div>
+    <header class="header-section ">
+      <div class="intro-header no-img">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>JWT - Weak secret</h1>
+                <span class="post-meta">Posted on March 27, 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </header>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <article role="main" class="blog-post">
+                  <h2 id="english-below">[WRITE - UP]</h2>     
+                      <p><a href="http://challenge01.root-me.org/web-serveur/ch59/hello">Link challenge</a>    
+                    <p>Tiếp tục là 1 challenge về JWT, và JWT là gì thì mình đã giải thích ở bài trên rồi nên mình sẽ không nói lại nữa nhé</p>   
+                    <p>Vừa vào challenge sẽ cho mình 1 đoạn message như sau</p> 
+                    <p><img src="../../img/jwtw.png" alt="jwt.PNG" /></p>
+                    <p>Chúng ta có thể truy cập vào <strong>/token</strong> bằng method <strong>GET</strong> khi đó sẽ nhận được 1 token</p>
+                    <p><img src="../../img/jwtw1.png" alt="jwt.png" /></p>
+                    <p>Thử decode token này xem có gì nào</p>
+                    <p><img src="../../img/jwtw2.png" alt="jwt.png" /></p>
+                    <p>Nhìn vào đây có thể biết challenge này phải đổi payload thành admin thì mới lấy được flag, nhưng muốn thay đổi được token thì phải có key</p>
+                    <p>Lại tiếp tục BruteForce như challenge trước thôi, nhưng lần này mình sử dụng <strong>hashcat</strong>, các bạn có thể dùng Linux cho tiện nhé, vì mình có sẵn trong Windows rồi nên mình sẽ dùng Windows luôn</p>
+                    <p class="box-note">hashcat -a 0 -m 16500 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiZ3Vlc3QifQ.
+                      4kBPNf7Y6BrtP-Y3A-vQXPY9jAh_d0E6L4IUjL65CvmEjgdTZyr2ag-TM-glH6EYKGgO3dBYbhblaPQsbeClcw D:\Web_Security\rockyou.txt</p>
+                      <p><img src="../../img/jwtw3.png" alt="jwt.png" /></p>
+                    <p>Đã có key, giờ thì encode lại token và lấy flag thôi!!!</p>
+                    <p>Nhìn lại challenge có thể truy cập vào <strong>/admin</strong> với method <strong>POST</strong>, lưu ý là phải thêm Header <strong>Authorization: Bearer</strong> vào nhé</p>
+                    <p><img src="../../img/jwtw4.png" alt="jwt.png" /></p>
+                    <p class="box-note">Flag: PleaseUseAStrongSecretNextTime</p>
+            </article>
+          </div>
+      </div>
+  </div>
   <footer>
     <div class="container beautiful-jekyll-footer">
       <div class="row">
