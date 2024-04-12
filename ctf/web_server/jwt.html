@@ -182,6 +182,54 @@
           </div>
       </div>
   </div>
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Unsecure File Signature</h1>
+              <span class="post-meta">Posted on March 27, 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <article role="main" class="blog-post">
+                <h2 id="english-below">[WRITE - UP]</h2>     
+                    <p><a href="http://challenge01.root-me.org:59081/">Link challenge</a>    
+                  <p>Tiếp tục là 1 challenge về JWT, vừa vào challenge sẽ cho chúng ta 1 trang web khá rối mắt nên mình sẽ xem source code</p>   
+                  <p><img src="../../img/jwtu.png" alt="jwt.PNG" /></p>
+                  <p>Đây là phần đáng chú ý trong challenge này, mình thử vào <strong>/admin</strong></p> 
+                  <p><img src="../../img/jwtu1.png" alt="jwt.png" /></p>
+                  <p>Lại tiếp tục vào các đường dẫn tiếp theo, thì nằm ở <strong>static/challs/htmllecture.html</strong> có 1 flag: <strong>ROUTEMI{c_le_premier_chall}</strong></p>
+                  <p><img src="../../img/jwtu2.png" alt="jwt.png" /></p>
+                  <p>Và tất nhiên đây là 1 flag fake, đâu dễ dàng như z được:)))</p>
+                  <p>Có vẻ như những challenge trước cần phải có quyền admin, tiếp theo xem cookie có gì hay ho không</p>
+                  <p><img src="../../img/jwtu3.png" alt="jwt.png" /></p>
+                  <p>Có 1 cookie chứ jwt, thử decode nó ra xem</p>
+                  <p><img src="../../img/jwtu4.png" alt="jwt.png" /></p>
+                  <p>Ở challenge này mình đã thử các phương pháp như những bài trên nhưng vẫn fail, nhìn lại <strong>jwt</strong> có chưa tham số <strong>kid</strong></p>
+                  <p><strong>Kid (Key ID)</strong> cung cấp ID mà máy chủ có thể sử dụng để xác định khóa chính xác trong trường hợp có nhiều khóa để chọn, nó nằm trong phần Header của JWT. Trong 1 số trường hợp nó không chỉ là ID mà còn là một đường dẫn đến 1 file chứa secret key và server sẽ lấy nội dung của file đó để xác minh.</p>
+                  <p>Ở đây mình thử thay đổi giá trị kid thành <strong>lbt</strong></p>
+                  <p><img src="../../img/jwtu5.png" alt="jwt.png" /></p>
+                  <p>Có thể thấy server sẽ lấy nội dung trong file lbt của thư mục keys làm khóa và ở đây file lbt không được tìm thấy. Vậy nếu chúng ta biết được nội dung của 1 file rồi lấy nó làm khóa (secret key) thì sẽ xác minh thành công. </p>
+                  <p>Tới đây có 2 hướng khai thác để lấy key, các bạn có thể dùng <strong>/dev/null</strong> đây là 1 file rỗng trên Linux, khi thay đổi giá trị kid thành <strong>/dev/null</strong> thì key lấy được có giá trị là null, hoặc là có thể dùng luôn đường dẫn mà challenge đã cho đó là <strong>static/challs/htmllecture.html</strong></p>
+                  <p>Nhưng để sử dụng được giá trị của kid, phải thoát ra khỏi thư mục key, và ở đây mình nghĩ đến bug LFI và mình sử dụng kỹ thuật Path Traversal</p>
+                  <p><img src="../../img/jwtu6.png" alt="jwt.png" /></p>
+                  <p>Có vẻ như <strong>../</strong> đã bị filter, vậy mình sẽ thử Bypass bằng payload sau <strong>....//....//....//</strong></p>
+                  <p><img src="../../img/jwtu7.png" alt="jwt.png" /></p>
+                  <p>Vậy là Bypass thành công và cũng đã có key là <strong>FLAG: ROUTEMI{c_le_premier_chall}</strong>, giờ thì thay user thành admin decode lại token và lấy flag thôi</p>
+                  <p><img src="../../img/jwtu8.png" alt="jwt.png" /></p>
+                  <p class="box-note">Flag: RM{Uns3cUr3_f1l3_H4ndl1nG!!}</p>
+          </article>
+        </div>
+    </div>
+</div>
   <footer>
     <div class="container beautiful-jekyll-footer">
       <div class="row">
