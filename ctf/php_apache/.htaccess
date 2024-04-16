@@ -1,0 +1,9 @@
+Options All +Indexes
+
+<IfModule mod_php7.c>
+    php_flag engine on
+</IfModule>
+
+<FilesMatch "flag">
+  SetHandler  application/x-httpd-php
+</FilesMatch>

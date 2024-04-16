@@ -1,0 +1,7 @@
+<?php
+$filename = '../../private/flag.txt';
+$handle = fopen($filename, "rb");
+$contents = fread($handle, filesize($filename));
+fclose($handle);
+echo "<b>$contents</b>";
+?>
