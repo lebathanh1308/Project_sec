@@ -230,6 +230,57 @@
         </div>
     </div>
 </div>
+<header class="header-section ">
+  <div class="intro-header no-img">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="post-heading">
+            <h1>JWT - Public key</h1>
+            <span class="post-meta">Posted on March 27, 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <article role="main" class="blog-post">
+              <h2 id="english-below">[WRITE - UP]</h2>     
+                  <p><a href="https://www.root-me.org/en/Challenges/Web-Server/JWT-Public-key">Link challenge</a>    
+                <p>Tiếp tục là 1 challenge về JWT, vừa vào challenge sẽ cho chúng ta 3 endpoints</p>
+                <p>
+                  <ul>
+                    <li><strong>./key (accessible with GET)</strong></li>
+                    <li><strong>./auth (accessible with POST)</strong></li>
+                    <li><strong>./admin (accessible with POST)</strong></li>
+                  </ul>
+                </p>
+                <p>Truy cập vào <strong>./key</strong> thì ta được 1 publickey và sau khi format sẽ được như sau</p> 
+                <p><img src="../../img/jwtp.png" alt="jwt.PNG" /></p>
+                <p>Vậy là mình đã có publickey lại tiếp tục vào <strong>./auth</strong>, lưu ý là ở <strong>./auth</strong> thì mình phải chuyển thành method POST mới vào được</p>
+                <p><img src="../../img/jwtp1.png" alt="jwt.png" /></p>
+                <p>Ở đây phải cung cấp username thì mới lấy được token, và username không được lấy giá trị là admin, và mình thử lấy tên mình</p>
+                <p><img src="../../img/jwtp2.png" alt="jwt.png" /></p>
+                <p>Tiếp theo thử truy cập tới <strong>./admin</strong></p>
+                <p><img src="../../img/jwtp3.png" alt="jwt.png" /></p>
+                <p>Ở đây phải challenge buộc ta phải thêm <strong>Header Authorization: Bearer</strong></p>
+                <p><img src="../../img/jwtp4.png" alt="jwt.png" /></p>
+                <p>Và rõ ràng phải có quyền admin thì mới lấy được flag, tiếp tuc khai thác.... mình thử decode token xem có thu được gì không</p>
+                <p><img src="../../img/jwtp5.png" alt="jwt.png" /></p>
+                <p>Ở token này phần alg sử dụng thuật toán <strong>RS256</strong>, đây là thuật toán <strong>asymmetric(bất đối xứng)</strong>, trong đó private key được sử dụng để sign JWT và public key được sử dụng để xác thực signature của JWT.</p>
+                <p>Sau một lúc tìm hiểu cách khai thác của challenge này, thì ở đây ta sẽ thực hiện thay đổi thuật toán, và thuật toán thay đổi là <strong>HS256</strong>, HS256 chỉ có 1 secret key để sign cũng như xác thực trong khi RS256 sử dụng 2 key như trên. Thì khi đổi thành HS256 thì nó sẽ dùng public key để xác thực (publickey bài đã cho).</p>
+                <p>Việc bây giờ là từ public key đó tạo signature cho JWT. Mình sẽ dùng <strong>jwt_tool.py</strong> để tạo, lưu ý nhớ đổi username thành admin</p>
+                <p><img src="../../img/jwtp6.png" alt="jwt.png" /></p>
+                <p>Giờ thì đổi lại token và lấy flag thôi!!!!</p>
+                <p><img src="../../img/jwtp7.png" alt="jwt.png" /></p>
+                <p class="box-note">Flag: HardcodeYourAlgoBro</p>
+        </article>
+      </div>
+  </div>
+</div>
   <footer>
     <div class="container beautiful-jekyll-footer">
       <div class="row">
