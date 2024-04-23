@@ -330,6 +330,49 @@
       </div>
   </div>
 </div>
+<header class="header-section ">
+  <div class="intro-header no-img">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="post-heading">
+            <h1>JWT - Unsecure Key Handling</h1>
+            <span class="post-meta">Posted on March 27, 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <article role="main" class="blog-post">
+              <h2 id="english-below">[WRITE - UP]</h2>     
+                  <p><a href="https://www.root-me.org/en/Challenges/Web-Server/JWT-Unsecure-Key-Handling">Link challenge</a>    
+                <p>Và đây là bài cuối cùng về JWT trong chuỗi bài JWT của mình</p>
+                <p>Vừa vào challenge đã đập vào mắt mình là endpoints admin, và nó kèm theo token</p>
+                <p><img src="../../img/jwtk.png" alt="jwt.PNG" /></p>
+                <p>Và tương tự như các bài JWT trước đó chúng ta phải có quyền admin</p> 
+                <p>Decode thử token xem thu được gì không</p>
+                <p><img src="../../img/jwtk1.png" alt="jwt.png" /></p>
+                <p>Có thể thấy có <strong>"jku": "jwk.json"</strong> nghĩ ngay đến việc khai thác vào jku này rồi, nhưng sau một hồi fuzz thì mình không tìm được gì trên trang web, có vẻ <strong>jwk.json</strong> được lưu vào đâu đó không biết được. Tuy nhiên khi mình thay đổi jku thì:</p>
+                <p><img src="../../img/jwtk2.png" alt="jwt.png" /></p>
+                <p>Như vậy address phải bắt đầu là <strong>http://localhost</strong>, như vậy mình cần tạo 1 site bắt đầu với localhost bằng <strong>000webhost.com</strong> và có <strong>jwk.json</strong> chứa thông tin key tạo bằng BurpSuite</p>
+                <p>Trước tiên mình sẽ tạo <strong>publickey</strong> bằng BurpSuite</p>
+                <p><img src="../../img/jwtk4.png" alt="jwt.png" /></p>
+                <p>Tiếp theo mình tạo 1 site bằng <strong>000webhost.com</strong> và chứa file <strong>jwk.json</strong> chứa publickey đã tạo trước đó</p>
+                <p><img src="../../img/jwtk3.png" alt="jwt.png" /></p>
+                <p>Và cuối cùng chúng ta chỉ cần sign với key đã có sẵn, đồng thời nhớ thay đổi giá trị user thành admin nhé</p>
+                <p><img src="../../img/jwtk5.png" alt="jwt.png" /></p>
+                <p>Vậy là mình đã có flag, lấy điểm thôi nào</p>
+                <p class="box-note">Flag: RM{4lw4y5_ch3ck_th3_JKU_C0rr3ctly}</p>
+                <p><img src="../../img/mindmap.png" alt="jwt.png" /></p>
+                <p>Đây là mindmap về JWT các bạn có thể tham khảo để hiểu hơn về hình thức tấn công này nhé</p>
+        </article>
+      </div>
+  </div>
+</div>
   <footer>
     <div class="container beautiful-jekyll-footer">
       <div class="row">
