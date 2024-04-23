@@ -281,6 +281,55 @@
       </div>
   </div>
 </div>
+<header class="header-section ">
+  <div class="intro-header no-img">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="post-heading">
+            <h1>JWT - Header Injection</h1>
+            <span class="post-meta">Posted on March 27, 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <article role="main" class="blog-post">
+              <h2 id="english-below">[WRITE - UP]</h2>     
+                  <p><a href="https://www.root-me.org/en/Challenges/Web-Server/JWT-Header-Injection">Link challenge</a>    
+                <p>Tiếp tục là 1 challenge về JWT, vừa vào challenge đập vào mắt mình là 1 web matrix, và mình sẽ tiến hành khai thác từ login vì ở đây có chỗ login bằng JWT</p>
+                <p><img src="../../img/jwth.png" alt="jwt.PNG" /></p>
+                <p>Ở đây mình không tìm thấy chỗ nó để có thể lấy token, nên mình sẽ thử lấy token ở placehoder để xác thực xem thử, nhớ chuyển sang method POST nhé</p> 
+                <p><img src="../../img/jwth1.png" alt="jwt.png" /></p>
+                <p>Có thể thấy challenge bắt chúng ta phải login với user là <strong>Neo</strong>, thử decode token xem có thu được gì không</p>
+                <p><img src="../../img/jwth2.png" alt="jwt.png" /></p>
+                <p>Và khi mình thử đổi user là <strong>Neo</strong> thì vẫn <strong>Invalid Token</strong></p>
+                <p>Như tiêu đề của bài là Header Injection, mình đã tìm hiểu sơ qua về phần này và sẽ tổng quát lại nó như sau:</p>
+                <p>Như ta biết thì phần header của JWT có 1 số tham số hay gặp như <strong>alg, typ</strong>, ngoài ra còn 1 số nữa dễ bị khai thác:
+                  <ul>
+                    <li><strong>Kid:</strong> mình đã nói ở bài JWT - Unsecure File Signature</li>
+                    <li><strong>jwk (JSON Web Key):</strong> cung cấp một đối tượng JSON được đại diện cho khóa.</li>
+                    <li><strong>jku (JSON Web Key Set URL):</strong> cung cấp một URL mà từ đó các server có thể tìm nạp một bộ khóa chứa khóa chính xác.</li>
+                  </ul>
+                </p>
+                <p>Và ở bài này mình sẽ sử dụng <strong>jwk</strong>, ví dụ về <strong>jwk</strong>:</p>
+                <p><img src="../../img/jwth3.png" alt="jwt.png" /></p>
+                <p>Nó đại diện cho <strong>publickey</strong> của RSA, <strong>kid</strong> này cũng định nghĩa như trên, <strong>n, e</strong> là tham số liên quan về RSA (liên quan đến việc tính toán của thuật toán này).
+                <p>Tham số <strong>jwk</strong> trong bài có thể kiểm soát từ người dùng mà server lại không xác thực nó. Như vậy ta có thể khai thác ở đây là tạo <strong>privatekey</strong> sau đó nhúng <strong>jwk</strong> đó vào header.</p>
+                <p>Ở đây mình sẽ tạo RSA key bằng extension <strong>JWT Editor Keys</strong> của Burp Suite, cách tạo như nào thì các bạn tự google nhé^^^</p>
+                <p><img src="../../img/jwth4.png" alt="jwt.png" /></p>
+                <p>Sau đó mình dùng <strong>JSON Web Token</strong> để nhúng nó vào: Attack -> Embedded JWK -> chọn khóa rồi Ok.</p>
+                <p><img src="../../img/jwth5.png" alt="jwt.png" /></p>
+                <p>Vậy là mình đã tạo được JWT, xác thực lại và lấy flag thôi</p>
+                <p class="box-note">Flag: RM{N3v3r_All0w_UnTrusTed_K3ys}</p>
+        </article>
+      </div>
+  </div>
+</div>
   <footer>
     <div class="container beautiful-jekyll-footer">
       <div class="row">
