@@ -182,6 +182,54 @@
             </div>
         </div>
     </div>
+    <header class="header-section ">
+      <div class="intro-header no-img">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>Local File Inclusion - Double encoding</h1>
+                <span class="post-meta">Posted on March 27, 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </header>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <article role="main" class="blog-post">
+                  <h2 id="english-below">[WRITE - UP]</h2>     
+                      <p><a href="http://challenge01.root-me.org/web-serveur/ch45/">Link challenge</a>    
+                    <p>Như challenge cũng đã đề cập đến bug LFI rồi, và mình nghĩ chỉ cần Double Encoding là nhận được flag rồi, nhưng mà không dễ như mình nghĩ...</p>   
+                    <p><img src="../../img/lfid.png" alt="lfi.PNG" /></p> 
+                    <p>Khi mình thử Double Encoding gửi thì nó báo không thể mở file gì đó có đuôi là <strong>inc.php</strong>, sau 1 thời gian khá lâu mình đã thử rất nhiều payload nhưng mà vẫn không thu được gì, và sau đó mình nhận ra challenge đã filter 1 số payload</p>
+                    <p>Sau 1 thời gian tham khảo khá nhiều nguồn thì mình nhận ra có thể khai thác bằng <strong>PHP Wrapper</strong>, 1 số ví dụ về <strong>PHP Wrapper</strong>:</p>
+                    <p><ul>
+                      <li><strong>php://stdin</strong> cho phép truy cập trực tiếp vào luồng đầu vào hoặc đầu ra tương ứng của quy trình PHP.</li>
+                      <li><strong>php://input</strong> chỉ cho phép bạn đọc dữ liệu thô từ nội dung yêu cầu.</li> 
+                      <li><strong>php://output</strong> cho phép bạn ghi vào cơ chế bộ đệm đầu ra giống như print và echo.</li>
+                      <li><strong>php://fd</strong> cho phép truy cập trực tiếp vào bộ mô tả tệp đã cho.</li>
+                      <li><strong>php://memory</strong> cho phép đọc, ghi dữ liệu tạm thời được lưu trữ trong một trình bao bọc giống như tệp.</li>
+                      <li><strong>php://filter</strong> lấy các tham số sau như một phần của đường dẫn của nó. Nhiều chuỗi bộ lọc có thể được chỉ định trên một đường dẫn.</li> 
+                    </ul></p>
+                    <p>Và ở challenge này mình có thể dùng payload đơn giản như sau:</p>
+                    <p class="box-note">php://filter/convert.base64.encode/resource=cv</p>      
+                    <p>Ở đây ta có thể khai thác vào home, cv hay contact đều được nha, giải thích xíu về payload trên, đoạn mã PHP trên đang cố gắng đọc nội dung ở file cv, sau đó nó sẽ encode nội dung bằng Base64 trước khi trả về nội dung</p>
+                    <p>Lưu ý phải Double Encode lên nhé, giờ thì tiến hàng khai thác thôi</p>
+                    <p><img src="../../img/lfid1.png" alt="lfi.png" /></p>
+                    <p>Vậy là payload đã khai thác thành công, giờ thì decode Base64 xem thu được gì nào</p>
+                    <p><img src="../../img/lfid2.png" alt="lfi.PNG" /></p>
+                    <p>Vậy là mình đã tìm được file có đuôi <strong>.inc.php</strong> ban đầu là file <strong>conf.inc.php</strong>, giờ thì đọc file đó xem thu được gì không</p>
+                    <p><img src="../../img/lfid3.png" alt="lfi.png" /></p>
+                    <p>Decode lại mà lấy flag thôi</p>
+                    <p><img src="../../img/lfid4.png" alt="lfi.png" /></p>
+                    <p class="box-note">Flag: Th1sIsTh3Fl4g!</p>
+            </article>
+          </div>
+      </div>
+  </div>
   <footer>
     <div class="container beautiful-jekyll-footer">
       <div class="row">
